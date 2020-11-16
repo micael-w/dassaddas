@@ -10,46 +10,36 @@ const div = document.querySelector(".card");
 const ul = document.querySelector(".list");
 const li = document.querySelector(".list-items");
 
-function MyUsers(listOfUsers) {
-
+function NewElementMaker(nameOfElement) {
+   const newElement = document.createElement(`${nameOfElement}`);
+   return newElement;
 }
+
+const newItem = new NewElementMaker(`marquee`);
+newItem.textContent = "lalala";
+div.appendChild(newItem);
+console.log(newItem);
 
 function User(name) {
    this.name = name;
 }
 
 
-
-/* const user1 = new User("Mirwais1");
-const user2 = new User("Mirwais2");
-const user3 = new User("Mirwais3");
-const user4 = new User("Mirwais4");
-const user5 = new User("Mirwais5");
-const user6 = new User("Mirwais6");
-const user7 = new User("Mirwais7");
-const user8 = new User("Mirwais8");
-const user9 = new User("Mirwais9"); */
-
-const unOrderedList = document.createElement("ul");
-div.appendChild(unOrderedList);
-unOrderedList.classList.add("list");
-
-
-for (let i = 1; i < 10; i++) {
-   const listItem = document.createElement("li");
-/*    const user = new User(`Mirwais${i}`); */
-   const user = new User("test");
-/*    listItem.textContent = `Mirwais${i}`; */
-/*    listItem.textContent = `Mirwais${i}`; */
-   listItem.textContent = user;
-   unOrderedList.appendChild(listItem);
-   listItem.classList.add("list-items");
+function renderUI(inputColor){
+   const unOrderedList = document.createElement("ul");
+   div.appendChild(unOrderedList);
+   unOrderedList.classList.add("list");
+   
+   
+   for (let i = 1; i < 10; i++) {
+      const listItem = document.createElement("li");
+      listItem.classList.add("list-items");
+      listItem.style.backgroundColor = inputColor;
+      const user = new User(`Mirwais${i}`);
+      listItem.textContent = user.name;
+      unOrderedList.appendChild(listItem);
+      
+   }
 }
 
-
-
-
-
-// li.textContent = user1.name
-
-
+renderUI("orange");
